@@ -1,0 +1,87 @@
+<!--header start-->
+<header>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark" id="mainNav">
+        <!--logo-->
+        <a class="footer-logo">
+            <a routerLink="/"><span>TI</span>CKET</a>
+        </a>
+        <!--logo-->
+
+        <!--responsive toggle icon-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fa fa-bars"> </i>
+            </span>
+        </button>
+        <!--responsive toggle icon-->
+
+        <!--nav link-->
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav leftNav">
+
+                <li class="nav-item" style="">
+                    <a class="nav-link js-scroll-trigger" *ngIf=" currentUser === 'logged' " routerLink="/home">
+                        <i class="nav-link js-scroll-trigger fa fa-search" aria-hidden="true">
+                        Browse
+                        </i>
+                        <span *ngIf=" tradeNotify != '' || msgNotify != '' "
+                            class="badge badge-pill badge-danger">{{ tradeNotify }}</span>
+                    </a>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" *ngIf=" currentUser === 'logged' " routerLink="/my-trades">
+                        <i class="nav-link js-scroll-trigger fa fa-globe" aria-hidden="true">
+                        Trades
+                        </i>
+                        <span *ngIf=" tradeNotify != '' || msgNotify != '' "
+                            class="badge badge-pill badge-danger">{{ tradeNotify }}</span>
+                    </a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" *ngIf=" currentUser === 'logged' " routerLink="/offers">
+                    <i class="nav-link js-scroll-trigger fa fa-bullhorn" aria-hidden="true">
+                        Offers
+                    </i>
+                </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" *ngIf=" currentUser === 'logged' " routerLink="/account">
+                    <i class="nav-link js-scroll-trigger fa fa-user" aria-hidden="true">
+                        {{username}}
+                    </i>
+                </a>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" *ngIf=" currentUser === 'logged' " routerLink="/notification">
+                    <i class="nav-link js-scroll-trigger fa fa-bell" aria-hidden="true"></i>
+                    <span *ngIf=" tradeNotify != '' || msgNotify != '' "
+                        class="badge badge-pill badge-danger">{{ allNotify }}</span>
+                </a>
+                </li> -->
+
+                <li class="nav-item" *ngIf=" currentUser !== 'logged' ">
+                    <a class="nav-link btn btn-pill js-scroll-trigger" routerLink="/register">Sign Up</a>
+                </li>
+
+                
+
+                <li class="nav-item" *ngIf=" currentUser !== 'logged' ">
+                    <a class="nav-link btn btn-pill buy-token js-scroll-trigger" routerLink="/login">Sign In</a>
+                </li>
+
+            </ul>
+        </div>
+        <!--nav link-->
+    </nav>
+</header>
+<!--header end-->
+
+      
+      

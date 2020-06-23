@@ -1,0 +1,73 @@
+<!--single-page-->
+<div class="content">
+  <div class="single-page main-grid-border">
+    <div class="container">
+      <ol class="breadcrumb" style="margin-bottom: 5px;">
+        <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item">
+          <a routerLink="/all-classifieds">All Ads</a>
+        </li>
+        <li class="breadcrumb-item active">{{ category }}</li>
+      </ol>
+
+      <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+        <app-app-loading-spinner  *ngIf="showSpinner"></app-app-loading-spinner >
+      </div>
+
+      <div class="row product-desc" *ngIf="!showSpinner">
+        <div class="col-md-7 product-view">
+          <h2>{{ title }}</h2>
+          <p>
+            <i class="glyphicon glyphicon-map-marker"></i>{{ venue }} | Added at
+            {{ createdAt }}, Event ID: {{ eventId }}
+          </p>
+          <div class="flexslider">
+            <img class="list-img" src="../../../assets/images/b2.jpg" title="" alt=""/> 
+          </div>
+
+          <div class="product-details">
+            <h4>
+              {{ category }} : <a href="#">{{ title }}</a>
+            </h4>
+            <p><strong>Summary</strong> : {{ description }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-5 product-details-grid">
+          <div class="item-price">
+            <h2 class="text-center">Terms</h2>
+            <div class="product-price">
+              <p class="p-price">Price</p>
+              <h3 class="rate">ksh {{ prize }}</h3>
+              <div class="clearfix"></div>
+            </div>
+            <div class="condition">
+              <p class="p-price">Venue</p>
+              <h4>{{ venue }}</h4>
+              <div class="clearfix"></div>
+            </div>
+            <div class="itemtype">
+              <p class="p-price">Category</p>
+              <h4>{{ category }}</h4>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <div class="interested text-center">
+            <h4>Buy Ticket?<small> </small></h4>
+            <p>
+              <button class="button btn-primary" (click)="apply()">
+                Checkout
+              </button>
+            </p>
+
+            <p></p>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//single-page-->

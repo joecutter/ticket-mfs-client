@@ -1,0 +1,23 @@
+.alert1 {
+  background: #f2edda;
+  padding: 7px;
+  font-size: .9em;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: 2s alertAnim forwards;
+}
+
+.loading-right{
+  margin-left: 200px;
+}
+
+@keyframes alertAnim {
+  from {
+    opacity:0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+}

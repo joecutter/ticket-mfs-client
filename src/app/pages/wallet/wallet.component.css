@@ -1,0 +1,94 @@
+.wallet-wrapper{
+	background:#f9f9f9;
+}
+
+.wallet-graphs{
+	padding: 30px 0 50px;
+}
+
+.wallet-up2{
+	float:right;
+	width:100%;
+}
+
+.wallet-up2 input[type="text"]{
+	outline:none;
+	border:1px solid #BEBEBE;
+	background:none;
+	font-size:15px;
+	padding:10px 10px;
+	width:100%;
+	margin:1em 0;
+
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+
+.action{
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+
+.wallet-up2 input[type=text]:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.wallet-up h2{
+	margin: 0 0 2em;
+	color:#01a185;
+	font-size: 20px;
+}
+
+.wallet-up h1 {
+    text-align: center;
+    font-size: 2em;
+    color:#f3c500;
+    margin: 0 0 0.5em;
+}
+
+
+.wallet-up input[type="submit"]{
+	outline: none;
+    border: none;
+    background: #01a185;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    transition: .5s all;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+}
+
+.wallet-up input[type="submit"]:hover{
+	background:#f3c500;
+	color:#fff;
+}
+
+.balance{
+	color:#000;
+	margin:.5em 0 3em;
+	line-height:1.8em;
+	text-align:center;
+	font-weight: 970;
+}
+
+hr { 
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 

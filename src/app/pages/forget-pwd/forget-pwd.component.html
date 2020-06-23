@@ -1,0 +1,50 @@
+<div class="page-content">
+  <div id="page-wrapper" class="sign-in-wrapper">
+    <div class="graphs">
+      <div class="sign-up">
+        <h1>Forgot Password</h1>
+        <p class="creating">{{quote}}</p>
+        <h2>Personal Information</h2>
+  
+          <form [formGroup]="rForm" (ngSubmit)="Forgot(rForm.value)">
+  
+            <!--IF ERROR-->
+            <!-- <div class="text-center text-danger">
+              <div *ngIf="error != '' " class="alert-danger alert">{{error}}</div>
+            </div>
+  
+            IF SUCCESS
+            <div class="text-center text-success">
+              <div *ngIf="message != '' " class="alert-success alert">{{message}}</div>
+            </div> -->
+  
+            <div class="sign-u">
+              <div class="sign-up1">
+                <h4>Email Address* :</h4>
+              </div>
+                <div class="sign-up2">
+                    <input type="text" placeholder="email" required=" " formControlName="email"/>
+                    <div *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="alert1">Password is Required!</div>
+                </div>
+              <div class="clearfix"> </div>
+           </div>
+  
+          <div class="sub_home">
+            <div class="sub_home_left">
+                <input [disabled]="loading" [disabled]="!rForm.valid" type="submit"  value="Reset">
+            </div>
+            <div class="loading-right">
+              <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+            <div class="sub_home_right">
+              <p>Go Back to <a routerLink="/login">Login</a></p>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+  
+       </form>
+      </div>
+    </div>
+  </div>
+</div>
+

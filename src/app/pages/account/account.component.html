@@ -1,0 +1,105 @@
+<section>
+  <div id="page-wrapper" class="sign-in-wrapper">
+    <div class="graphs">
+
+      <div class="clearfix"></div>
+
+      <div class="new_people text-left">
+        <h1>My Account</h1>
+      </div>
+
+      <div class="container-note">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-8">
+
+              <div class="col-md-12">
+                <hr>
+                <h2>Profile</h2>
+
+                <div class="row">
+                  <span class="col-md-3">Username</span>
+                  <span class="col-md-6">{{username}}</span>
+                  <span class="col-md-3 editbtn">
+                    <!-- <a (click)="editUsername()">Edit</a> -->
+                  </span>
+
+
+                  <span class="col-md-3">
+                    <!-- <a (click)="editBlurb()">Edit</a> -->
+                  </span>
+
+                
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <hr>
+                <h2>Contact</h2>
+
+                <div class="row">
+                  <span class="col-md-3">Phone Number</span>
+                  <span class="col-md-6">{{phone}}</span>
+                  <span class="col-md-3">
+                    <!-- <a (click)="editPhoneNo()">Edit</a> -->
+                  </span>
+
+                  <span class="col-md-3">SMS Notification</span>
+                  <span class="col-md-6 checkbox1">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    </div>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <hr>
+                <h2>Security</h2>
+
+                <div class="row">
+                  <span class="col-md-12 security">
+                    <p class="text-left">Two-factor authentication is mandatory on kisoko. You can either use a link sent to your e-mail address, or an OTP app (e.g. Google Authenticator).</p>
+                  </span>
+
+                  <span class="col-md-3">Password</span>
+                  <span class="col-md-6">*****</span>
+                  <span class="col-md-3">
+                    <!-- <a (click)="editPwd()">Edit</a> -->
+                  </span>
+
+                  <span class="col-md-3">Two-Factor</span>
+                  <span class="col-md-6"><a>One-time password</a></span>
+                  <span class="col-md-3"><a (click)="edit2FA()">
+                    <input type="checkbox" checked data-toggle="toggle">
+                  </a></span>
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <hr>
+                <h2>Logout</h2>
+
+                <div class="row">
+                  <span class="col-md-12 security">
+                     <p class="text-left">When using a shared device, you should always log out before leaving. </p>
+                  </span>
+
+                  <span class="col-md-12">
+                    <button class="button btn-primary" [disabled]="loading" (click)="logOut()">LOGOUT</button>
+                     <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                  </span>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+           </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

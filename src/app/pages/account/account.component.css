@@ -1,0 +1,41 @@
+hr {
+  display: block;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
+h2{
+  margin: 0 0 2em;
+  color:#01a185;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  color:#f3c500;
+  margin: 0 0 0.5em;
+}
+
+.profile {
+
+}
+
+.editbtn{
+  /*margin-right:1em; */
+}
+
+.security{
+  color:#999;
+  margin:1em 0 2em;
+  font-size:14px;
+  line-height:1.8em;
+}
+
+span{
+  margin: 5px 0px 5px 0px;
+}

@@ -1,0 +1,73 @@
+<section>
+  <div id="page-wrapper" class="sign-in-wrapper">
+    <div class="graphs">
+      <div class="clearfix"></div>
+
+      <div class="new_people">
+        <h2>Past Buys</h2>
+        <p>If you buy a ticket this is where you view all buys made.</p>
+        <a routerLink="/post-trade">Post a Trade Now!</a>
+      </div>
+
+      <div class="container-note" *ngIf="showSpinner"></div>
+
+      <div class="container-note" *ngIf="!showSpinner">
+        <table
+          class="table table-striped"
+          [mfData]="active"
+          #mf="mfDataTable"
+          [mfRowsOnPage]="10"
+        >
+          <thead>
+            <tr>
+              <th style="width: 17%;">
+                <mfDefaultSorter by="date">Date opened</mfDefaultSorter>
+              </th>
+              <th style="width: 17%;">
+                <mfDefaultSorter by="itemid">Item</mfDefaultSorter>
+              </th>
+              <th style="width: 17%;">
+                <mfDefaultSorter by="type">Type</mfDefaultSorter>
+              </th>
+              <th style="width: 17%;">
+                <mfDefaultSorter by="amount">Amount</mfDefaultSorter>
+              </th>
+              <th style="width: 17%;">
+                <mfDefaultSorter by="partner">Trade partner</mfDefaultSorter>
+              </th>
+              <th style="width: 17%;">
+                <mfDefaultSorter by="state">State</mfDefaultSorter>
+              </th>
+              <th style="width: 15%;">
+                <mfDefaultSorter by="state">Status</mfDefaultSorter>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of mf.data">
+              <td>{{ item.dateCreated }}</td>
+              <td>{{ item.itemId }}</td>
+              <td>{{ item.type }}</td>
+              <td>{{ item.amount }}</td>
+              <td>{{ item.partner }}</td>
+              <td>{{ item.condition }}</td>
+              <td>{{ item.status }}</td>
+              <td>
+                <a type="button">Cancel</a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">
+                <mfBootstrapPaginator
+                  [rowsOnPageSet]="[5, 10, 25]"
+                ></mfBootstrapPaginator>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

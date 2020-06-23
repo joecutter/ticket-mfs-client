@@ -1,0 +1,94 @@
+<div class="content">
+  <div id="page-wrapper" class="wallet-wrapper">
+    <div class="wallet-graphs">
+      <div class="wallet-up">
+        <div class="new_people text-center">
+          <h1>Wallet</h1>
+        </div>
+
+        <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+          <app-app-loading-spinner
+            *ngIf="showSpinner"
+          ></app-app-loading-spinner>
+        </div>
+
+        <div class="container" *ngIf="!showSpinner">
+          <div class="row">
+            <!-- SEND MONEY -->
+            <div class="col-md-6 col-sm-6 col-xs-6">
+              <h2 class="text-center">Checkout</h2>
+              <form [formGroup]="rForm" (ngSubmit)="topUp(rForm.value)">
+                <div class="wallet-up2 form-group">
+                  <div class="tips wallet-up2 form-group text-center">
+                    <h4>Pay KSH {{ amount }}</h4>
+                  </div>
+                </div>
+
+                <!-- TOPUP -->
+                <div class="wallet-up2 form-group">
+                  <label>Phone</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Phone Number"
+                    required=" "
+                    formControlName="phone"
+                  />
+                </div>
+
+                <!-- AMOUNT -->
+                <div class="wallet-up2 form-group">
+                  <label>Amount</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Amount"
+                    required=" "
+                    formControlName="amount"
+                  />
+                </div>
+
+                <div class="sub_home">
+                  <buttonLoader *ngIf="loading"></buttonLoader>
+                  <input type="submit" value="TOP UP" />
+                </div>
+              </form>
+            </div>
+
+            <!-- TRANSACTION HISTORY -->
+            <div class="col-md-6 col-sm-6 col-xs-6">
+              <h2 class="text-center">Transaction History</h2>
+              <ul class="list">
+                <li
+                  *ngFor="
+                    let item of history
+                      | paginate
+                        : { id: 'first', itemsPerPage: 10, currentPage: p1 }
+                  "
+                >
+                  <section class="list-left">
+                    <h5 class="title">transID: {{ item.eventId }}</h5>
+                    <h5 class="title">
+                      {{ item.phone }} » KSH: {{ item.amount }} »
+                      {{ item.status }}
+                    </h5>
+                  </section>
+
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+
+              <div
+                *ngIf="history.length > 5"
+                class="pagination pagination-sm has-text-centered"
+              >
+                <pagination-controls
+                  (pageChange)="p1 = $event"
+                  id="first"
+                ></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

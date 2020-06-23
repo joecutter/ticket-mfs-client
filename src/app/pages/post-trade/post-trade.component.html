@@ -1,0 +1,187 @@
+<!-- Submit Ad -->
+<div class="submit-ad main-grid-border">
+  <div class="container">
+    <h2 class="head">Post an Event</h2>
+
+    <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+      <app-app-loading-spinner *ngIf="showSpinner"></app-app-loading-spinner>
+    </div>
+
+    <div class="post-ad-form" *ngIf="!showSpinner">
+      <form [formGroup]="rForm" (ngSubmit)="postTrade()">
+        <label>Ad Title <span>*</span></label>
+        <input
+          type="text"
+          placeholder="Title of the Item"
+          required=" "
+          formControlName="title"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && formValues['title'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && formValues['title'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="formValues['title'].errors.required">
+            Title is required
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <label>Ad Category <span>*</span></label>
+        <select
+          class="form-control"
+          required=" "
+          placeholder="Category"
+          formControlName="category"
+          [ngClass]="{
+            'is-invalid': submitted && formValues['category'].errors
+          }"
+        >
+          <option value="">Select Category</option>
+          <option value="Music">Music</option>
+          <option value="Talks">Talks</option>
+          <option value="Outdoor">Outdoor</option>
+          <option value="Games">Games</option>
+        </select>
+        <div
+          *ngIf="submitted && formValues['category'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="formValues['category'].errors.required">
+            Category is required
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <label>Ad Description <span>*</span></label>
+        <textarea
+          placeholder="Write few lines about your product"
+          required=" "
+          class="form-control"
+          formControlName="description"
+          [ngClass]="{
+            'is-invalid': submitted && formValues['description'].errors
+          }"
+        ></textarea>
+        <div
+          *ngIf="submitted && formValues['description'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="formValues['description'].errors.required">
+            Please Describe your Item
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <label>Your Venue <span>*</span></label>
+        <input
+          type="text"
+          placeholder="Enter your Venue"
+          required=" "
+          class="form-control"
+          formControlName="venue"
+          [ngClass]="{
+            'is-invalid': submitted && formValues['venue'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && formValues['venue'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="formValues['venue'].errors.required">
+            Venue Required
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <label>Ad Prize <span>*</span></label>
+        <input
+          type="text"
+          placeholder="Prize of the Item"
+          required=" "
+          class="form-control"
+          formControlName="prize"
+          [ngClass]="{
+            'is-invalid': submitted && formValues['prize'].errors
+          }"
+          [(ngModel)]="prize"
+        />
+        <div
+          *ngIf="submitted && formValues['prize'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="formValues['prize'].errors.required">
+            Enter the Item Prize
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="upload-ad-photos">
+          <label>Ad Images<span>*</span></label>
+          <div class="photos-upload-view">
+            <input
+              type="file"
+              (change)="fileChangeEvent($event)"
+              placeholder="Upload a file..."
+              multiple
+              formControlName="image"
+              [ngClass]="{
+                'is-invalid': submitted && formValues['image'].errors
+              }"
+            />
+            <div
+              *ngIf="submitted && formValues['image'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="formValues['image'].errors.required">
+                Image is required
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class class="personal-details">
+          <label>Your Email Address<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Enter your Email"
+            required=" "
+            class="form-control"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': submitted && formValues['email'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && formValues['email'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="formValues['email'].errors.required">
+              Email is required
+            </div>
+            <div *ngIf="formValues['email'].errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <p class="post-terms"></p>
+
+          <input type="submit" value="Post" />
+          <div class="loading-right" style="height: 50; width: 50;">
+            <img
+              *ngIf="isLoading"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

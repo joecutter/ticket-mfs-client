@@ -1,0 +1,117 @@
+<!-- content-starts-here -->
+<div class="content">
+  <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+    <app-app-loading-spinner  *ngIf="showSpinner"></app-app-loading-spinner >
+  </div>
+
+  <div *ngIf="!showSpinner" class="ads-display col-md-12">
+    <div class="wrapper">
+      <div
+        class="bs-example bs-example-tabs"
+        role="tabpanel"
+        data-example-id="togglable-tabs"
+      >
+        <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+          <li role="presentation" class="active">
+            <a
+              href="#allAds"
+              id="allAds-tab"
+              role="tab"
+              data-toggle="tab"
+              aria-controls="allAds"
+              aria-expanded="true"
+            >
+              <span class="text">Events</span>
+            </a>
+          </li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+          <div
+            role="tabpanel"
+            class="tab-pane fade show active"
+            id="allAds"
+            aria-labelledby="allAds-tab"
+          >
+            <div>
+              <div id="container">
+                <div class="view-controls-list" id="viewcontrols">
+                  <label>view :</label>
+                  <a class="gridview"><i class="fa fa-th"></i></a>
+                  <a class="listview active"><i class="fa fa-list"></i></a>
+                </div>
+                <div class="sort">
+                  <div class="sort-by">
+                    <label>Sort By : </label>
+                    <select>
+                      <option value="">Most recent</option>
+                      <option value="">Price: Rs Low to High</option>
+                      <option value="">Price: Rs High to Low</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <ul class="list">
+                  <li
+                    *ngFor="
+                      let item of allPost
+                        | paginate
+                          : { id: 'first', itemsPerPage: 10, currentPage: p1 }
+                    "
+                  >
+                    <!-- <img class="list-img" src={{item.image}} title="" alt=""/> -->
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img class="list-img" src={{item.image}} title="" alt=""/>
+                      </div>
+
+                      <div class="col-md-6">
+                        <section class="list-left">
+                          <h5 class="title">
+                            {{ item.title }} » ID:
+                            {{ item.eventId }}
+                          </h5>
+                          <h5 class="adprice">ksh {{ item.prize }}</h5>
+                          <strong
+                            ><p class="cityname">
+                              Description » {{ item.description }}
+                            </p></strong
+                          >
+                          <p class="cityname">Category » {{ item.category }}</p>
+                        </section>
+                        <section class="list-right">
+                          <span class="date">{{ item.dateCreated }}</span>
+                        </section>
+                      </div>
+
+                      <div class="list-right col-md-4">
+                        <button
+                          class="btnSend button btn-primary"
+                          type="submit"
+                          (click)="apply(item.eventId)"
+                        >
+                          Trade
+                        </button>
+                        <span class="cityname">{{ item.tradeCount }}</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="pagination pagination-sm has-text-centered">
+                  <pagination-controls
+                    (pageChange)="p1 = $event"
+                    id="first"
+                  ></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
