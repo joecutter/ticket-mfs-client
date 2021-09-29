@@ -29,7 +29,7 @@
     "angular2-datatable": "^0.6.0",
     "angular2-moment": "^1.8.0",
     "core-js": "^2.4.1",
-    "datatables.net": "^1.10.16",
+    "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.10.16",
     "easy-responsive-tabs": "0.0.2",
     "expose-loader": "^0.7.5",
